@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Monster",
+    "services": [
+      "Docker",
+      "Portainer",
+      "Prometheus",
+      "Grafana",
+      "Nginx Proxy Manager",
+      "Uptime Kuma",
+      "Homepage",
+      "WireGuard (wg-easy)",
+      "Stirling-PDF",
+      "OpenSpeedTest",
+      "Digital-ID",
+      "Watchtower",
+      "Dozzle",
+      "Restic",
+      "CrowdSec"
+    ]
+  },
+  {
+    "name": "Phoenix",
+    "services": [
+      "Cloudflared",
+      "Nginx (Alpine)",
+      "Portainer Agent",
+      "Node Exporter",
+      "Dozzle Agent",
+      "Watchtower",
+      "iperf3",
+      "Restic"
+    ]
+  },
+  {
+    "name": "Wraith",
+    "services": [
+      "Telegram Proxy",
+      "WhatsApp Proxy",
+      "Cloudflared",
+      "Host Networking",
+      "Portainer Agent",
+      "Node Exporter",
+      "Dozzle Agent",
+      "Watchtower",
+      "iperf3",
+      "Restic"
+    ]
+  }
+]

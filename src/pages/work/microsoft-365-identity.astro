@@ -1,0 +1,225 @@
+---
+import CaseStudyLayout from '../../layouts/CaseStudyLayout.astro';
+
+const sections = [
+  { id: 'context', label: 'Context' },
+  { id: 'tenant', label: 'Tenant administration' },
+  { id: 'identity', label: 'Identity & access' },
+  { id: 'support', label: 'Support practice' },
+  { id: 'reflection', label: 'What I take forward' },
+];
+---
+
+<CaseStudyLayout
+  title="Microsoft 365 & Identity Administration — Pratik Deshmukh"
+  description="My personal Microsoft 365 Developer sandbox: tenant settings, Entra ID users and groups, role-based access and simulated helpdesk troubleshooting."
+  canonicalPath="/work/microsoft-365-identity/"
+  sections={sections}
+>
+  <Fragment slot="hero">
+    <span class="eyebrow case-project-label">02 / PERSONAL ADMINISTRATION SANDBOX</span>
+    <h1 id="case-title">
+      Identity is an
+      <br />
+      <span class="accent">operational responsibility.</span>
+    </h1>
+    <p>
+      Practising Microsoft 365 tenant administration, Entra ID and access management in a personal
+      Developer environment.
+    </p>
+    <div class="case-meta">
+      <div>
+        <small class="muted">ENVIRONMENT</small>
+        <b>Microsoft 365 Developer sandbox</b>
+      </div>
+      <div>
+        <small class="muted">FOCUS</small>
+        <b>Tenant settings, users & roles</b>
+      </div>
+      <div>
+        <small class="muted">SCOPE</small>
+        <b>Personal practice / simulated support</b>
+      </div>
+    </div>
+  </Fragment>
+  <div class="split" slot="figure">
+    <figure class="drawing">
+      <span class="mono">MICROSOFT 365 / ADMINISTRATION WORKFLOW</span>
+      <div class="identity-flow">
+        <div class="identity-step">
+          <small>01</small>
+          <b>Users & groups</b>
+          <span>Provision</span>
+        </div>
+        <div class="identity-step">
+          <small>02</small>
+          <b>Roles & access</b>
+          <span>Assign</span>
+        </div>
+        <div class="identity-step">
+          <small>03</small>
+          <b>Support scenarios</b>
+          <span>Investigate</span>
+        </div>
+      </div>
+      <figcaption>
+        Personal Developer environment. An overview of the practice, without tenant or user
+        information.
+      </figcaption>
+    </figure>
+    <div>
+      <span class="eyebrow">THE ADMINISTRATION WORKFLOW</span>
+      <h2>
+        Provision.
+        <br />
+        Assign.
+        <br />
+        Investigate.
+      </h2>
+      <p class="workflow-intro">
+        Work through the relationship between identities, administrative roles and the questions
+        that reach a support queue.
+      </p>
+    </div>
+  </div>
+
+  <section id="context" aria-labelledby="context-title">
+    <span class="eyebrow">01 / CONTEXT</span>
+    <h2 id="context-title">
+      A place to practise
+      <br />
+      administrative decisions.
+    </h2>
+    <p>
+      I managed a personal Microsoft 365 Developer environment as a Global Administrator to practise
+      tenant administration and identity workflows. The sandbox gave me a place to configure
+      settings, provision identities and navigate the administrative tools.
+    </p>
+    <p>
+      This is personal project experience. My professional role at Teleperformance was in
+      international non-voice customer care; the sandbox is where I developed hands-on familiarity
+      with Microsoft 365 administration.
+    </p>
+  </section>
+
+  <section id="tenant" aria-labelledby="tenant-title">
+    <span class="eyebrow">02 / TENANT ADMINISTRATION</span>
+    <h2 id="tenant-title">
+      Understand the
+      <br />
+      scope of a change.
+    </h2>
+    <p>
+      I worked with tenant-wide settings, domains and security policies in the Microsoft 365 admin
+      tools. The focus was understanding the administrative environment and how to find the controls
+      relevant to a task.
+    </p>
+    <p>
+      A tenant setting and a user-specific issue operate at different scopes. Making that
+      distinction is a useful starting point for administration and troubleshooting, especially when
+      a broad privilege makes many changes possible.
+    </p>
+  </section>
+
+  <section id="identity" aria-labelledby="identity-title">
+    <span class="eyebrow">03 / IDENTITY & ACCESS</span>
+    <h2 id="identity-title">
+      Users, groups
+      <br />
+      and role boundaries.
+    </h2>
+    <p>
+      I provisioned users and groups through Microsoft Entra ID and implemented role-based access
+      control. Working with these objects made identity and access management a practical
+      administrative task rather than just a list of concepts.
+    </p>
+    <div class="drawing">
+      <span class="mono accent">THREE QUESTIONS ABOUT ACCESS</span>
+      <div class="identity-flow">
+        <div class="identity-step">
+          <small>01</small>
+          <b>Identity</b>
+          <span>Who?</span>
+        </div>
+        <div class="identity-step">
+          <small>02</small>
+          <b>Role assignment</b>
+          <span>What access?</span>
+        </div>
+        <div class="identity-step">
+          <small>03</small>
+          <b>Administrative scope</b>
+          <span>Where?</span>
+        </div>
+      </div>
+      <p class="diagram-note">
+        A conceptual way to reason about permission, without exposing individual assignments.
+      </p>
+    </div>
+    <h3>Distinguish privilege from the task</h3>
+    <p>
+      Global Administrator was the access level in my practice environment. Having that privilege is
+      different from demonstrating a least-privilege design. The useful question is which
+      permissions a particular task requires, and at what scope.
+    </p>
+  </section>
+
+  <section id="support" aria-labelledby="support-title">
+    <span class="eyebrow">04 / SUPPORT PRACTICE</span>
+    <h2 id="support-title">
+      Follow the question
+      <br />
+      through the admin tools.
+    </h2>
+    <p>
+      I used the Microsoft 365 admin center to simulate common corporate helpdesk escalations. The
+      work connected administrative navigation with the habit of understanding a question before
+      choosing a change.
+    </p>
+    <p>
+      My customer support experience brings a complementary discipline: follow the process,
+      communicate clearly and coordinate an escalation when another team needs to be involved. The
+      sandbox let me apply that way of thinking while learning tenant and identity tools.
+    </p>
+    <p>
+      These were practice scenarios, separate from customer tickets or administration of an
+      employer’s Microsoft 365 tenant.
+    </p>
+  </section>
+
+  <section id="reflection" aria-labelledby="reflection-title">
+    <span class="eyebrow">05 / WHAT I TAKE FORWARD</span>
+    <h2 id="reflection-title">
+      Administration meets
+      <br />
+      support experience.
+    </h2>
+    <p>
+      The project connects user and group management, tenant settings, access roles and support
+      workflows. It adds hands-on administration practice to my background in handling customer
+      questions and escalations.
+    </p>
+    <p>
+      More detailed scenario notes would make the work easier to revisit: the initial symptom, the
+      scope inspected, the action taken and the result. That is the next step in turning practical
+      familiarity into a clearer troubleshooting record.
+    </p>
+    <a class="text-link" href="/#contact">
+      Get in touch ↗
+    </a>
+  </section>
+</CaseStudyLayout>
+
+<style>
+  .case-project-label {
+    display: block;
+    margin-top: 40px;
+  }
+  .workflow-intro {
+    margin-top: 24px;
+  }
+  .diagram-note {
+    margin-top: 20px;
+    font-size: 0.875rem;
+  }
+</style>

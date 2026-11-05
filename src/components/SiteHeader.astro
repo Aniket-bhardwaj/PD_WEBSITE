@@ -1,0 +1,41 @@
+---
+const links = [
+  { label: 'Work', href: '/#work', number: '01' },
+  { label: 'Practice', href: '/#practice', number: '02' },
+  { label: 'Background', href: '/#background', number: '03' },
+];
+---
+
+<div class="studio-wrap">
+  <header class="studio-header">
+    <a class="studio-brand" href="/" aria-label="Pratik S. Deshmukh — home">
+      <span class="studio-mark" aria-hidden="true">
+        pd/
+      </span>
+      Pratik S. Deshmukh
+    </a>
+    <nav class="desktop-nav" aria-label="Primary navigation">
+      {links.map((link) => (
+        <a href={link.href}>
+          <small aria-hidden="true">{link.number}</small>
+          {link.label}
+        </a>
+      ))}
+      <a href="/#contact">
+        Let’s talk <span aria-hidden="true">↗</span>
+      </a>
+    </nav>
+    <details class="mobile-nav">
+      <summary>Menu</summary>
+      <nav aria-label="Mobile navigation">
+        {links.map((link) => (
+          <a href={link.href}>{link.label}</a>
+        ))}
+        <a href="/#contact">Contact</a>
+        <a href="/resume/Pratik-Deshmukh.pdf" download>
+          Résumé (PDF)
+        </a>
+      </nav>
+    </details>
+  </header>
+</div>

@@ -1,0 +1,42 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  canonicalPath: string;
+  sections: { id: string; label: string }[];
+}
+
+const { title, description, canonicalPath, sections } = Astro.props;
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalPath={canonicalPath}
+  bodyClass="studio-case"
+>
+  <div class="wrap">
+    <section class="case-hero" aria-labelledby="case-title">
+      <a class="back" href="/#work">
+        ← Selected work
+      </a>
+      <slot name="hero" />
+    </section>
+    <slot name="figure" />
+    <div class="case-layout">
+      <nav class="case-toc" aria-label="Case study sections">
+        <span class="mono accent">IN THIS STUDY</span>
+        {sections.map(({ id, label }, index) => (
+          <a href={`#${id}`}>
+            {String(index + 1).padStart(2, '0')} / {label}
+          </a>
+        ))}
+      </nav>
+      <div class="case-body">
+        <slot />
+      </div>
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,55 @@
+<figure class="drawing topology-figure">
+  <span class="mono">OCI / COMPUTE RESPONSIBILITIES</span>
+  <svg viewBox="0 0 520 290" role="img" aria-labelledby="topology-title topology-description">
+    <title id="topology-title">Three compute nodes with separate responsibilities</title>
+    <desc id="topology-description">
+      Cloudflare public ingress reaches Phoenix. Monster handles core applications and
+      observability; Wraith handles asynchronous workloads. The lower dashed line groups compute
+      roles and is not a traffic route.
+    </desc>
+    <path d="M260 34V66" />
+    <text x="260" y="23" text-anchor="middle">
+      Cloudflare edge
+    </text>
+    <rect x="157" y="66" width="206" height="66" rx="2" />
+    <text x="178" y="94">
+      Phoenix
+    </text>
+    <text class="caption" x="178" y="115">
+      PUBLIC INGRESS · x86
+    </text>
+    <path d="M105 173H415" stroke-dasharray="4 6" />
+    <text class="caption" x="260" y="160" text-anchor="middle">
+      COMPUTE ROLES / LOGICAL GROUPING
+    </text>
+    <rect x="18" y="198" width="224" height="67" rx="2" />
+    <text x="38" y="225">
+      Monster
+    </text>
+    <text class="caption" x="38" y="248">
+      CORE + OBSERVABILITY · ARM64
+    </text>
+    <rect x="278" y="198" width="224" height="67" rx="2" />
+    <text x="298" y="225">
+      Wraith
+    </text>
+    <text class="caption" x="298" y="248">
+      ASYNC WORKLOADS · x86
+    </text>
+  </svg>
+  <div class="diagram-text-alternative">
+    <div>
+      <b>Phoenix</b> — public ingress / x86
+    </div>
+    <div>
+      <b>Monster</b> — core applications & observability / ARM64
+    </div>
+    <div>
+      <b>Wraith</b> — asynchronous workloads / x86
+    </div>
+  </div>
+  <figcaption>
+    Architecture overview. Compute roles are grouped by responsibility; private addresses and
+    service endpoints are omitted.
+  </figcaption>
+</figure>

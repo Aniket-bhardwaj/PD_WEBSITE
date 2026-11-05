@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HomepageHero from '../components/home/HomepageHero.astro';
+import SelectedWork from '../components/home/SelectedWork.astro';
+import TechnicalPractice from '../components/home/TechnicalPractice.astro';
+import Background from '../components/home/Background.astro';
+import Contact from '../components/home/Contact.astro';
+---
+
+<BaseLayout
+  title="Pratik Deshmukh | Cloud, Linux & Technical Support"
+  description="Pratik S. Deshmukh’s portfolio: cloud infrastructure, Linux, networking and identity administration projects, grounded in international customer support experience."
+>
+  <div class="studio-wrap">
+    <HomepageHero />
+    <SelectedWork />
+    <TechnicalPractice />
+  </div>
+  <Background />
+  <Contact />
+</BaseLayout>

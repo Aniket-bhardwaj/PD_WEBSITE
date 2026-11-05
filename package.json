@@ -1,0 +1,44 @@
+{
+  "name": "pratik-deshmukh-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "scripts": {
+    "dev": "astro dev --host 127.0.0.1",
+    "check": "astro check",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "build": "astro build && node scripts/check-build.mjs",
+    "preview": "astro preview --host 127.0.0.1",
+    "measure": "node scripts/measure-performance.mjs",
+    "validate": "npm run check && npm run lint && npm run format:check && npm test && npm run build && npm run test:e2e"
+  },
+  "dependencies": {
+    "astro": "7.4.6"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.9.12",
+    "@axe-core/playwright": "4.10.2",
+    "@eslint/js": "10.0.1",
+    "@playwright/test": "1.64.1",
+    "@types/node": "26.6.6",
+    "chrome-launcher": "1.2.2",
+    "eslint": "10.14.0",
+    "eslint-plugin-astro": "3.2.1",
+    "lighthouse": "13.6.0",
+    "prettier": "3.9.10",
+    "prettier-plugin-astro": "1.1.2",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.72.1",
+    "vitest": "5.1.0"
+  },
+  "overrides": {
+    "minimatch": "11.0.1"
+  }
+}

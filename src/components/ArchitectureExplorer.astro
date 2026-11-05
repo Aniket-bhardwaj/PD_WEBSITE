@@ -1,0 +1,218 @@
+---
+import { infrastructureFlows, infrastructureNodes } from '../data/infrastructure';
+
+interface Props {
+  id?: string;
+}
+const { id = 'architecture-explorer' } = Astro.props;
+---
+
+<div class="explorer" data-explorer aria-labelledby={`${id}-heading`}>
+  <div class="explorer-top">
+    <h3 id={`${id}-heading`}>Explore the architecture</h3>
+    <p class="preview-note">
+      Choose a compute node or follow an access path to inspect the design.
+    </p>
+    <div
+      class="mode-controls"
+      role="group"
+      aria-label="Architecture view"
+      data-explorer-controls
+      hidden
+    >
+      {infrastructureFlows.map((flow) => (
+        <button
+          type="button"
+          data-mode={flow.id}
+          aria-pressed={flow.id === 'overview'}
+          aria-controls={`${id}-flows ${id}-route`}
+        >
+          {flow.label}
+        </button>
+      ))}
+    </div>
+  </div>
+
+  <div class="explorer-grid">
+    <div class="node-map" data-explorer-controls hidden>
+      <span class="mono muted">Select a compute node</span>
+      <div class="boundary">
+        <span class="mono muted">OCI / Compute responsibilities</span>
+        {infrastructureNodes.map((node) => (
+          <button
+            type="button"
+            class="node-select"
+            data-node={node.id}
+            aria-pressed={node.id === 'monster'}
+            aria-controls={`${id}-details`}
+          >
+            <b>{node.name}</b>
+            <small>
+              {node.role} / {node.architecture}
+            </small>
+            <span class="selection-label" hidden={node.id !== 'monster'}>
+              Selected
+            </span>
+          </button>
+        ))}
+      </div>
+      <p class="preview-note">Three compute roles, organized by workload and access boundary.</p>
+    </div>
+
+    <div
+      id={`${id}-details`}
+      class="node-detail"
+      data-detail
+      role="region"
+      aria-label="Compute node details"
+    >
+      {infrastructureNodes.map((node) => (
+        <section data-node-panel={node.id} aria-labelledby={`${id}-${node.id}`}>
+          <span class="eyebrow">Compute node / {node.architecture}</span>
+          <h3 id={`${id}-${node.id}`}>{node.name}</h3>
+          <p>{node.description}</p>
+          <dl>
+            <dt>Responsibility</dt>
+            <dd>{node.role}</dd>
+            <dt>Compute</dt>
+            <dd>
+              {node.architecture} · {node.compute}
+            </dd>
+            <dt>Networking</dt>
+            <dd>{node.networking}</dd>
+            <dt>Operations</dt>
+            <dd>{node.operations}</dd>
+          </dl>
+          <h4 class="service-heading">Services & tools</h4>
+          <div class="service-list">
+            {node.services.slice(0, 6).map((service) => (
+              <details>
+                <summary>{service.name}</summary>
+                <p>{service.description}</p>
+              </details>
+            ))}
+          </div>
+          {node.services.length > 6 && (
+            <details class="additional-services" open data-secondary-services>
+              <summary>More services & tools ({node.services.length - 6})</summary>
+              <div class="service-list">
+                {node.services.slice(6).map((service) => (
+                  <details>
+                    <summary>{service.name}</summary>
+                    <p>{service.description}</p>
+                  </details>
+                ))}
+              </div>
+            </details>
+          )}
+        </section>
+      ))}
+    </div>
+  </div>
+
+  <ol id={`${id}-route`} class="route-steps" data-route aria-label="Architecture steps"></ol>
+  <div id={`${id}-flows`} class="flow-copy" data-flow>
+    {infrastructureFlows.map((flow) => (
+      <section data-flow-panel={flow.id} aria-labelledby={`${id}-flow-${flow.id}`}>
+        <h4 id={`${id}-flow-${flow.id}`}>{flow.title}</h4>
+        <ol class:list={['static-route', { directional: flow.directional }]}>
+          {flow.steps.map((step) => (
+            <li>{step}</li>
+          ))}
+        </ol>
+        <p>{flow.description}</p>
+      </section>
+    ))}
+  </div>
+  <p class="sr-only" data-announcement aria-live="polite" aria-atomic="true"></p>
+</div>
+
+<script>
+  import '../scripts/explorer';
+</script>
+
+<style>
+  .explorer [hidden] {
+    display: none !important;
+  }
+  .explorer:not(.enhanced) .explorer-grid {
+    display: block;
+  }
+  .explorer:not(.enhanced) .node-detail,
+  .explorer:not(.enhanced) .flow-copy {
+    display: block;
+    border-left: 0;
+  }
+  .explorer:not(.enhanced) [data-node-panel] + [data-node-panel],
+  .explorer:not(.enhanced) [data-flow-panel] + [data-flow-panel] {
+    margin-top: 40px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+  }
+  .explorer:not(.enhanced) [data-route] {
+    display: none;
+  }
+  .explorer.enhanced .static-route {
+    display: none;
+  }
+  .explorer-top h3 {
+    font-size: clamp(24px, 2.4vw, 32px);
+    margin: 0 0 16px;
+  }
+  .node-detail section > h3 {
+    margin: 12px 0 20px;
+  }
+  .service-heading {
+    font-size: 18px;
+    margin: 28px 0 16px;
+  }
+  .additional-services {
+    margin-top: 16px;
+    border-top: 1px solid var(--border);
+  }
+  .additional-services > summary {
+    cursor: pointer;
+    min-height: 44px;
+    padding: 12px 0;
+    color: var(--accent);
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .additional-services > .service-list {
+    padding-left: 16px;
+    border-left: 1px solid var(--border);
+  }
+  .flow-copy h4 {
+    font-size: 18px;
+    margin: 0 0 16px;
+  }
+  .flow-copy p {
+    margin: 0;
+    font-size: inherit;
+  }
+  .static-route {
+    margin: 16px 0;
+    padding-left: 24px;
+  }
+  .static-route li {
+    padding: 4px 0;
+  }
+  .node-select small {
+    display: block;
+  }
+  .node-detail dd {
+    overflow-wrap: anywhere;
+  }
+  .node-select,
+  .mode-controls button {
+    transition:
+      border-color 180ms,
+      background-color 180ms;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .node-select,
+    .mode-controls button {
+      transition: none;
+    }
+  }
+</style>

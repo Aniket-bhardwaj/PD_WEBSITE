@@ -1,0 +1,98 @@
+<div class="hero-art">
+  <span class="art-meta">FIG. 01 / ACCESS BOUNDARIES</span>
+  <div class="system-drawing" data-system-stage data-path="public">
+    <svg viewBox="0 0 560 440" role="img" aria-labelledby="hero-system-title hero-system-desc">
+      <title id="hero-system-title">Public and private access relationships</title>
+      <desc id="hero-system-desc">
+        Public ingress through Cloudflare to Phoenix. A separate conceptual administrative path
+        reaches private services. Monster and Wraith are shown as compute roles, with no inferred
+        traffic route between them.
+      </desc>
+      <path class="concept" d="M95 160L330 24 534 142 300 279Z" />
+      <text class="label" x="324" y="48" transform="rotate(30 324 48)">
+        PUBLIC INGRESS
+      </text>
+      <path class="wire" d="M99 124L210 188 308 132" />
+      <path class="public-signal signal" d="M99 124L210 188 308 132" />
+      <path class="wire" d="M450 250L356 304 211 220 120 273" />
+      <path class="admin-signal signal" d="M450 250L356 304 211 220 120 273" />
+      <g>
+        <path class="plate" d="M29 97L97 58 163 96 95 135Z" />
+        <path class="plate-front" d="M29 97V119L95 157 163 118V96L95 135Z" />
+        <text class="label" x="23" y="42">
+          CLOUDFLARE EDGE
+        </text>
+        <text class="sub" x="18" y="178">
+          Public request
+        </text>
+      </g>
+      <g>
+        <path class="plate phoenix-plate" d="M233 101L310 56 390 102 312 148Z" />
+        <path class="plate-front" d="M233 101V140L312 186 390 140V102L312 148Z" />
+        <text class="name" x="266" y="222">
+          Phoenix
+        </text>
+        <text class="sub" x="260" y="241">
+          Public ingress / x86
+        </text>
+        <path class="route-point" d="M298 101L311 94 324 101 311 109Z" />
+      </g>
+      <g>
+        <path class="plate admin-plate" d="M390 226L450 191 510 226 450 261Z" />
+        <path class="plate-front" d="M390 226V246L450 281 510 246V226L450 261Z" />
+        <text class="label" x="379" y="170">
+          AUTHORIZED DEVICE
+        </text>
+        <text class="sub" x="397" y="305">
+          Private mesh
+        </text>
+      </g>
+      <g>
+        <path class="plate admin-plate" d="M41 283L120 237 201 283 121 329Z" />
+        <path class="plate-front" d="M41 283V320L121 366 201 320V283L121 329Z" />
+        <text class="name" x="79" y="398">
+          Monster
+        </text>
+        <text class="sub" x="47" y="418">
+          Core + observability / ARM64
+        </text>
+      </g>
+      <g>
+        <path class="plate" d="M252 345L315 308 379 345 315 382Z" />
+        <path class="plate-front" d="M252 345V365L315 402 379 365V345L315 382Z" />
+        <text class="name" x="394" y="374">
+          Wraith
+        </text>
+        <text class="sub" x="394" y="395">
+          Async / x86
+        </text>
+      </g>
+      <path class="concept" d="M22 218L192 120" />
+      <text class="label" x="59" y="212" transform="rotate(-30 59 212)">
+        SEPARATE ACCESS SCOPES
+      </text>
+    </svg>
+  </div>
+  <div class="art-controls">
+    <div class="path-switch" role="group" aria-label="Access path">
+      <button type="button" data-path-select="public" aria-pressed="true">
+        Public ingress
+      </button>
+      <button type="button" data-path-select="private" aria-pressed="false">
+        Administration
+      </button>
+    </div>
+    <button type="button" class="replay" data-replay>
+      Replay ↻
+    </button>
+  </div>
+  <div class="art-caption">
+    <span data-system-caption aria-live="polite">
+      Public requests reach Phoenix through a Cloudflare Tunnel. Administrative access follows a
+      separate private path.
+    </span>
+    <a class="hero-case-link" href="/work/zero-trust-cloud/#architecture">
+      Explore the architecture <span aria-hidden="true">↗</span>
+    </a>
+  </div>
+</div>
